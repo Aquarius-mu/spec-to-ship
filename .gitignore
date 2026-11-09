@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.cache/
+selftest.config.json
+*.bak-*
+.DS_Store

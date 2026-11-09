@@ -1,0 +1,33 @@
+{
+  "_说明": "复制本文件为同目录的 selftest.config.json 并改成你团队的值。也可用环境变量 SELFTEST_<大写键名> 覆盖（优先级更高）。下面的值只是示例，直接照抄跑不通。",
+  "_留空即禁用": "标 * 的项留空则该子命令不可用，其余有通用缺省值。",
+
+  "*ssh": "user@jump-host",
+  "*local_root": "/path/to/local/repo",
+  "*remote_root": "/home/dev/repo",
+
+  "test_tools": "path/to/probe/tools",
+  "division_prefix": "zone.",
+  "proto_ns": "GameProto",
+  "env_query": "env=dev",
+
+  "*bootstrap": "cd {root}/Script && source env.sh >/dev/null 2>&1",
+  "*resolve_host_cmd": "resolve-host {svc} {t}",
+  "*cross_hop": "ssh {user}@{host} \\\"{inner}\\\"",
+  "cross_user": "someuser",
+  "*probe_run_cmd": "cd {tools} && ./run-probe.sh {name} {uid} {zone}",
+  "*probe_raw_cmd": "cd {tools} && ./probe-cli {payload}",
+
+  "*log_root": "/var/log/game",
+  "log_dir": "{log_root}/{instance}/{svc}",
+  "*log_file_main": "game.{svc}.log",
+  "*log_file_kind": "game.{svc}_{kind}_*.log",
+  "log_svc": { "game": "GameServer", "cross": "CrossServer" },
+
+  "*build_cmd": "./build.sh",
+  "*deploy_cmd": "./Script/deploy.sh --zones {zones} {msg}",
+
+  "default_uid": 0,
+  "default_zone": 0,
+  "default_cross": 0
+}
